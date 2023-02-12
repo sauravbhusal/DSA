@@ -84,6 +84,8 @@ void Insert_At_Beginning()
 {
     int value;
     struct node *NewNode;
+    NewNode = (struct node *)malloc(sizeof(struct node));
+
     NewNode -> next = NULL;
     NewNode -> prev = NULL;
 
@@ -91,12 +93,11 @@ void Insert_At_Beginning()
     scanf("%d",&value);
     NewNode -> data = value;
 
-    NewNode = (struct node *)malloc(sizeof(struct node));
-
+    
     if(head == NULL)
     {
         head = NewNode;
-         
+        return; 
     }
 
     else
@@ -105,6 +106,7 @@ void Insert_At_Beginning()
         NewNode -> next = head;
         head -> prev = NewNode;
         head = NewNode;
+        return;
          
     }
     
@@ -116,6 +118,7 @@ void Insert_At_Ending()
     int value;
     struct node *NewNode;
     struct node *ptr;
+    NewNode = (struct node*)malloc(sizeof(struct node));
     NewNode -> next = NULL;
     NewNode -> prev = NULL;
 
@@ -123,11 +126,12 @@ void Insert_At_Ending()
     scanf("%d",&value);
     NewNode -> data = value;
 
-    NewNode = (struct node*)malloc(sizeof(struct node));
+    
 
     if(head == NULL)
     {
-        head = NewNode; 
+        head = NewNode;
+        return; 
     }
 
     else
@@ -152,14 +156,13 @@ void Insert_At_Position()
     struct node *ptr;
     NewNode -> next = NULL;
     NewNode -> prev = NULL;
-
+    NewNode = (struct node*)malloc(sizeof(struct node));
     printf("\n ENTER THE VALUE TO INSERT:  ");
     scanf("%d",&value);
     printf("\n ENTER THE POSITION TO INSERT:  ");
     scanf("%d",&pos);
     NewNode -> data = value;
-    NewNode = (struct node*)malloc(sizeof(struct node));
-
+    
     if(pos == 0)
     {
         Insert_At_Beginning();
